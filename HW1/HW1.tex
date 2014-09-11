@@ -1,0 +1,194 @@
+
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\subsection*{1}
+\textbf{a.}
+\textbf{b.}
+\textbf{c.}
+\textbf{d.}
+\textbf{e.}
+\subsection*{2}
+
+\textbf{a.}
+\textbf{b.}
+\textbf{c.}
+\textbf{d.}
+\textbf{e.}
+\textbf{f.}
+\subsection*{3}
+\textbf{a.}
+$\delta_1(t) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t|}$\\*
+Property \#1 \\*
+$\delta_1(t - t_0) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t - t_0|}$
+
+Let's explore two cases $|t - t_0| = 0$ and $|t - t_0| = m \neq 0$, in case 1, 
+the limit takes the value of $\lim_{a \to \infty} \frac{a}{2} e^{0} = \lim_{a \to \infty} \frac{a}{2}$ 
+which is clearly non-zero.
+
+When $|t - t_0| = m \neq 0$ the limit is:
+\[
+\lim_{a \to \infty} \frac{a}{2} e^{-am} = 
+\lim_{a \to \infty} \frac{\frac{a}{2} }{e^{am}}
+\]
+using L'Hopital's rule we get that:
+\[ =
+\lim_{a \to \infty} \frac{\frac{1}{2} }{me^{am}} = 0
+\]
+Property \#2
+\[
+\lim_{a \to \infty} \int_{-\infty}^{\infty}\frac{a}{2} e^{-a|t|}\,dt = 
+\lim_{a \to \infty} \frac{a}{2} 2 \int_{0}^{\infty} e^{-at}\,dt 
+\]
+\[
+= \lim_{a \to \infty} \frac{1}{a} e^{-at} |_{0}^{\infty}
+= \lim_{a \to \infty} \frac{a}{a}
+\]
+\[= 1\]
+\textbf{b.}
+$\delta_2(t) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{t - a}{2a})$\\*
+Property \#1
+\[
+\delta_2(t - t_0) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{(t -t_0) - a}{2a})
+\]
+By using standard shifting and scaling we can write $\Pi(\frac{(t -t_0) - a}{2a})$ piecewise:
+\[\Pi(\frac{(t -t_0) - a}{2a}) = \left\{
+  \begin{array}{lr}
+    1 & : t \in [t_0, t_0 + 2a]\\
+    0 & : t \not\in [t_0, t_0 + 2a]
+  \end{array}
+\right.
+\]
+As the $a \to 0$ the only value that stays consistantly non-0 is $t = t_0$
+all the other values become zero.
+\\*
+Property \#2
+\[
+\lim_{a \to 0} \int_{-\infty}^{\infty}\frac{1}{2a} \Pi(\frac{t - a}{2a})dt = 
+\lim_{a \to 0} \frac{1}{2a} \int_{0}^{2a}dt 
+= \lim_{a \to 0} \frac{2a}{2a} 
+\]
+\[= 1\]
+\subsection*{4}
+\textbf{a.}
+\[z \times z^* = (re^{j\theta})(re^{-j\theta}) = r^2 e^{j(\theta - \theta) = r^2} \]
+\textbf{b.}
+\[ \frac{z}{z^*} = \frac{re^{j\theta}}{re^{-j\theta}} = \frac{r}{r} e^{j (\theta + \theta)} = e^{2j\theta} \]
+\textbf{c.}
+\[(z_1 z_2)^* = (r_1 e^{j \theta_1} r_2 e^{j \theta_2})^* = (r_1 r_2 e^{-j(\theta_1 + \theta_2)})^* = r_1 r_2 e^{-j(\theta_1 + \theta_2)}\]
+\[z_1^* z_2^* = (r_1e^{j\theta_1})^* (r_2e^{j\theta_2})^* = (r_1e^{-j\theta_1}) (r_2e^{-j\theta_2})  = r_1 r_2 e^{-j(\theta_1 + \theta_2)} \]
+\[\rightarrow z_1^* z_2^* = (z_1 z_2)^*\]
+\textbf{d.}
+\[
+(\frac{z_1}{z_2})^*  = (\frac{r_1e^{j\theta_1}}{r_2e^{j\theta_2}})^* =   (\frac{r_1}{r_2} e^{j(\theta_1 - \theta_2)})^* =     
+\frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}
+\]
+
+\[
+\frac{z_1^*}{z_2^*} =
+\frac{r_1 e^{-j\theta_1}}{r_2 e^{-j\theta_2}} = 
+\frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}
+\]
+\[
+\rightarrow
+\frac{z_1^*}{z_2^*} =(\frac{z_1}{z_2})^* 
+\]
+
+\subsection*{5}
+\textbf{a.} $u(t)$
+\[ Odd = \frac{u(t) - u(-t)}{2}\]
+\[Evem = \frac{u(t) + u(-t)}{2} =  \frac{1}{2}\]
+\textbf{b.} $Cos(2\pi t)u(t)$
+\[Odd = \frac{Cos(2\pi t)u(t) - Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) - u(-t))\]
+\[Even = \frac{Cos(2\pi t)u(t) + Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) + u(-t))\]
+\[ = \frac{Cos(2\pi t)}{2}\]
+
+
+\subsection*{6}
+\textbf{a.} $h(t) = e^tu(t)$ is not \emph{BIBO} stable system, an example of a bounded input 
+resulting in an unbound output is $x(t) = u(t)$ which results in the output
+\begin{align*}
+y(t) = h(t) * x(t) = 
+\int_{-\infty}^{\infty} u(\tau)e^{t - \tau}u(t - \tau) \, d\tau \\
+= \int_{0}^{t}e^{t - \tau} \, d\tau 
+= e^t \int_{0}^{t}e^{-\tau} \, d\tau = \\
+= \boxed{e^t (1 - e^{-t})}
+\\
+\end{align*}
+which is an unbound function.
+
+\textbf{b.} $h(t) = (t - 1)^2e^{1-t}u(t)$ The system is \emph{BIBO} stable since:
+\begin{align*}
+	y(t) = h(t) * x(t) = 
+	\int_{-\infty}^{\infty} |u(t)e^{1 - t}(t - 1)^2 \, dt \\
+	= e
+\end{align*}
+which is bound, hance the integral is bound.
+
+\textbf{c.} $h[n] = u[n - 4]$ is not \emph{BIBO} stable system, an example of a bounded input 
+resulting in an unbound output is $x(t) = u(t)$ which results in the output:
+\begin{align*}
+y[t] = h[t] * x[t] = 
+\sum_{k = -\infty}^{\infty} u[k] u[n - k - 4] = \sum_{k = 0}^{n - 4} 1 \\
+= n - 4 + 1 = \boxed{n - 3}
+\end{align*}
+which is an unbound function. Therefore, the system is not BIBO stable
+
+\textbf{d.} $Cos[2\pi n] u[n]$ is not \emph{BIBO} stable system, an example of a bounded input 
+resulting in an unbound output is $x[n]= u[n]$ which results in the output
+\begin{align*}
+y[t] = h[t] * x[t] = 
+\sum_{k = -\infty}^{\infty} u[k] u[n - k] 
+= \sum_{k = 0}^{n} 1 
+= \boxed{n +1 }
+\end{align*}
+which is clearly unbound.
+
+\textbf{e.} $\sum_{n = -\infty}^{\infty}\delta(t - 2n)$ is not \emph{BIBO} stable system, an example of a bounded input 
+resulting in an unbound output is $x(t)= u(t)$ which results in the output
+\begin{align*}
+	y(t) = h(t) * x(t) = 
+	\int_{-\infty}^{\infty} u(t - \tau)\sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau \\
+	= \int_{-\infty}^{t} \sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau = 
+	\sum_{n = -\infty}^{\infty}  \int_{-\infty}^{t} \delta(\tau - 2n) \, d\tau \\
+	= \sum_{n = -\infty}^{\left \lfloor{\frac{t}{2}}\right \rfloor } 1 
+	= \boxed{\infty}
+\end{align*}
+which is clearly unbound
+\subsection*{7}
+\textbf{a.} 
+$x(t) = \Pi ( t - 1); h(t) = r(t)$ \\*
+\begin{align*}
+	y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} r(\tau) \Pi (t - \tau - 1) \, d\tau \\
+	= \int_{(t - 1) - \frac{1}{2}}^{(t - 1) + \frac{1}{2}}r(\tau) d\tau
+	= \int_{t - \frac{3}{2}}^{t - \frac{1}{2}}r(\tau) d\tau \\
+           = \left\{
+  		\begin{array}{lr}
+		    \int_{t - \frac{3}{2}}^{t - \frac{1}{2}}\tau d\tau & : t\geq \frac{3}{2} \\
+		    \int_{0}^{t - \frac{1}{2}}\tau d\tau x^3 & : t \in [\frac{1}{2}, \frac{3}{2})\\
+	              0 & : t < \frac{1}{2}
+		  \end{array}
+	\right. \\
+	=
+	\boxed{
+          	\left\{
+  		\begin{array}{lr}
+		    \frac{(t - \frac{1}{2})^2 - (t - \frac{3}{2})^2}{2} & : t \geq \frac{3}{2} \\
+		    \frac{(t - \frac{1}{2})^2}{2} & : t \in [\frac{1}{2}, \frac{3}{2})\\
+	              0 & : t < \frac{1}{2}
+		  \end{array}
+	\right.
+	}
+\end{align*}
+\textbf{b.}
+$x(t) = e^{-t}u(t); h(t) = \Pi (t - \frac{1}{2})$\\*
+\begin{align*}
+	y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} e^{-\tau}u(\tau) \Pi (t - \tau - \frac{1}{2}) \, d\tau \\
+\end{align*}
+\textbf{c.}
+$x(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) ; h(t) = \Pi(t)Sin(2\pi t)$\\*
+\end{document}
+
+
+
+
