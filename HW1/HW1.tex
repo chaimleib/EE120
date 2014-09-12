@@ -78,16 +78,13 @@ System is unknown, output is measured, input is designed
 \end{enumerate}
 
 
-\subsection*{2}
+\subsection*{2} 
+See attached sketch.
 
-\textbf{a.}
-\textbf{b.}
-\textbf{c.}
-\textbf{d.}
-\textbf{e.}
-\textbf{f.}
+
 \subsection*{3}
-\textbf{a.}
+\begin{enumerate}
+\item[a.]
 $\delta_1(t) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t|}$\\*
 Property \#1 \\*
 $\delta_1(t - t_0) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t - t_0|}$
@@ -115,7 +112,8 @@ Property \#2
 = \lim_{a \to \infty} \frac{a}{a}
 \]
 \[= 1\]
-\textbf{b.}
+
+\item[b.]
 $\delta_2(t) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{t - a}{2a})$\\*
 Property \#1
 \[
@@ -139,16 +137,23 @@ Property \#2
 = \lim_{a \to 0} \frac{2a}{2a} 
 \]
 \[= 1\]
+\end{enumerate}
+
 \subsection*{4}
-\textbf{a.}
+
+\begin{enumerate}
+\item[a.]
 \[z \times z^* = (re^{j\theta})(re^{-j\theta}) = r^2 e^{j(\theta - \theta) = r^2} \]
-\textbf{b.}
+
+\item[b.]
 \[ \frac{z}{z^*} = \frac{re^{j\theta}}{re^{-j\theta}} = \frac{r}{r} e^{j (\theta + \theta)} = e^{2j\theta} \]
-\textbf{c.}
+
+\item[c.]
 \[(z_1 z_2)^* = (r_1 e^{j \theta_1} r_2 e^{j \theta_2})^* = (r_1 r_2 e^{-j(\theta_1 + \theta_2)})^* = r_1 r_2 e^{-j(\theta_1 + \theta_2)}\]
 \[z_1^* z_2^* = (r_1e^{j\theta_1})^* (r_2e^{j\theta_2})^* = (r_1e^{-j\theta_1}) (r_2e^{-j\theta_2})  = r_1 r_2 e^{-j(\theta_1 + \theta_2)} \]
 \[\rightarrow z_1^* z_2^* = (z_1 z_2)^*\]
-\textbf{d.}
+
+\item[d.]
 \[
 (\frac{z_1}{z_2})^*  = (\frac{r_1e^{j\theta_1}}{r_2e^{j\theta_2}})^* =   (\frac{r_1}{r_2} e^{j(\theta_1 - \theta_2)})^* =     
 \frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}
@@ -163,19 +168,26 @@ Property \#2
 \rightarrow
 \frac{z_1^*}{z_2^*} =(\frac{z_1}{z_2})^* 
 \]
+\end{enumerate}
 
 \subsection*{5}
-\textbf{a.} $u(t)$
+
+\begin{enumerate}
+\item[a.] $u(t)$
 \[ Odd = \frac{u(t) - u(-t)}{2}\]
 \[Evem = \frac{u(t) + u(-t)}{2} =  \frac{1}{2}\]
-\textbf{b.} $Cos(2\pi t)u(t)$
+
+\item[b.] $Cos(2\pi t)u(t)$
 \[Odd = \frac{Cos(2\pi t)u(t) - Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) - u(-t))\]
 \[Even = \frac{Cos(2\pi t)u(t) + Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) + u(-t))\]
 \[ = \frac{Cos(2\pi t)}{2}\]
+\end{enumerate}
 
 
 \subsection*{6}
-\textbf{a.} $h(t) = e^tu(t)$ is not \emph{BIBO} stable system, an example of a bounded input 
+
+\begin{enumerate}
+\item[a.] $h(t) = e^tu(t)$ is not \emph{BIBO} stable system, an example of a bounded input 
 resulting in an unbound output is $x(t) = u(t)$ which results in the output
 \begin{align*}
 y(t) = h(t) * x(t) = 
@@ -187,7 +199,7 @@ y(t) = h(t) * x(t) =
 \end{align*}
 which is an unbound function.
 
-\textbf{b.} $h(t) = (t - 1)^2e^{1-t}u(t)$ The system is \emph{BIBO} stable since:
+\item[b.] $h(t) = (t - 1)^2e^{1-t}u(t)$ The system is \emph{BIBO} stable since:
 \begin{align*}
 	y(t) = h(t) * x(t) = 
 	\int_{-\infty}^{\infty} |u(t)e^{1 - t}(t - 1)^2 \, dt \\
@@ -195,7 +207,7 @@ which is an unbound function.
 \end{align*}
 which is bound, hance the integral is bound.
 
-\textbf{c.} $h[n] = u[n - 4]$ is not \emph{BIBO} stable system, an example of a bounded input 
+\item[c.] $h[n] = u[n - 4]$ is not \emph{BIBO} stable system, an example of a bounded input 
 resulting in an unbound output is $x(t) = u(t)$ which results in the output:
 \begin{align*}
 y[t] = h[t] * x[t] = 
@@ -204,7 +216,7 @@ y[t] = h[t] * x[t] =
 \end{align*}
 which is an unbound function. Therefore, the system is not BIBO stable
 
-\textbf{d.} $Cos[2\pi n] u[n]$ is not \emph{BIBO} stable system, an example of a bounded input 
+\item[d.] $Cos[2\pi n] u[n]$ is not \emph{BIBO} stable system, an example of a bounded input 
 resulting in an unbound output is $x[n]= u[n]$ which results in the output
 \begin{align*}
 y[t] = h[t] * x[t] = 
@@ -214,7 +226,7 @@ y[t] = h[t] * x[t] =
 \end{align*}
 which is clearly unbound.
 
-\textbf{e.} $\sum_{n = -\infty}^{\infty}\delta(t - 2n)$ is not \emph{BIBO} stable system, an example of a bounded input 
+\item[e.] $\sum_{n = -\infty}^{\infty}\delta(t - 2n)$ is not \emph{BIBO} stable system, an example of a bounded input 
 resulting in an unbound output is $x(t)= u(t)$ which results in the output
 \begin{align*}
 	y(t) = h(t) * x(t) = 
@@ -225,8 +237,13 @@ resulting in an unbound output is $x(t)= u(t)$ which results in the output
 	= \boxed{\infty}
 \end{align*}
 which is clearly unbound
+\end{enumerate}
+
+
 \subsection*{7}
-\textbf{a.} 
+
+\begin{enumerate}
+\item[a.] 
 $x(t) = \Pi ( t - 1); h(t) = r(t)$ \\*
 \begin{align*}
 	y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} r(\tau) \Pi (t - \tau - 1) \, d\tau \\
@@ -250,7 +267,8 @@ $x(t) = \Pi ( t - 1); h(t) = r(t)$ \\*
 	\right.
 	}
 \end{align*}
-\textbf{b.}
+
+\item[b.]
 $x(t) = e^{-t}u(t); h(t) = \Pi (t - \frac{1}{2})$\\*
 \begin{align*}
 	y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} e^{-\tau}u(\tau) \Pi (t - \tau - \frac{1}{2}) \, d\tau \\
@@ -272,7 +290,8 @@ $x(t) = e^{-t}u(t); h(t) = \Pi (t - \frac{1}{2})$\\*
 	 \end{array}
 	}
 \end{align*}
-\textbf{c.}
+
+\item[c.]
 $x(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) ; h(t) = \Pi(t)Sin(2\pi t)$\\*
 \begin{align*}
 	y(t) = x(t) * h(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) * h(t)	= 
@@ -282,7 +301,7 @@ $x(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) ; h(t) = \Pi(t)S
 	-\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)Sin(2\pi t) = \\
 	\boxed{Sin(2\pi t)}
 \end{align*}
-
+\end{enumerate}
 \end{document}
 
 
