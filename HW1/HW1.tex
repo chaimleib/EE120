@@ -165,7 +165,7 @@ $x(t) = \Pi ( t - 1); h(t) = r(t)$ \\*
            = \left\{
   		\begin{array}{lr}
 		    \int_{t - \frac{3}{2}}^{t - \frac{1}{2}}\tau d\tau & : t\geq \frac{3}{2} \\
-		    \int_{0}^{t - \frac{1}{2}}\tau d\tau x^3 & : t \in [\frac{1}{2}, \frac{3}{2})\\
+		    \int_{0}^{t - \frac{1}{2}}\tau d\tau & : t \in [\frac{1}{2}, \frac{3}{2})\\
 	              0 & : t < \frac{1}{2}
 		  \end{array}
 	\right. \\
@@ -184,9 +184,35 @@ $x(t) = \Pi ( t - 1); h(t) = r(t)$ \\*
 $x(t) = e^{-t}u(t); h(t) = \Pi (t - \frac{1}{2})$\\*
 \begin{align*}
 	y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} e^{-\tau}u(\tau) \Pi (t - \tau - \frac{1}{2}) \, d\tau \\
+	= \int_{(t - \frac{1}{2}) - \frac{1}{2}}^{(t - \frac{1}{2}) + \frac{1}{2}}e^\tau u(\tau) d\tau
+	= \int_{t - 1}^{t}e^\tau u(\tau)(\tau) d\tau \\
+           = \left\{
+  		\begin{array}{lr}
+		    \int_{t}^{t - 1}e^\tau  d\tau & : t\geq 1 \\
+		    \int_{0}^{t}e^\tau d\tau & : t \in [0, 1)\\
+	              0 & : t < 0
+		  \end{array}
+	\right. \\	
+	=
+	\boxed{
+	\begin{array}{lr}
+		    e^t - e^{t - 1} & : t\geq 1 \\
+		    e^t & : t \in [0, 1)\\
+	              0 & : t < 0
+	 \end{array}
+	}
 \end{align*}
 \textbf{c.}
 $x(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) ; h(t) = \Pi(t)Sin(2\pi t)$\\*
+\begin{align*}
+	y(t) = x(t) * h(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) * h(t)	= 
+	\sum_{n = -\infty}^{\infty}h(t - \frac{1}{2} - n) = \\
+	\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)Sin(2\pi (t - \frac{1}{2} - n)) = 
+	\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)Sin(2\pi t - \pi - 2 n \pi ) = \\
+	-\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)Sin(2\pi t) = \\
+	\boxed{Sin(2\pi t)}
+\end{align*}
+
 \end{document}
 
 
