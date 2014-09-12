@@ -1,7 +1,9 @@
 \documentclass[10pt, letterpaper]{article}
 \usepackage{amsmath}
 \usepackage[margin=1.25in]{geometry}
+\usepackage{scrextend}
 \usepackage{fancyhdr}
+
 \pagestyle{fancy}
 \addtolength{\headheight}{\baselineskip}
 \lhead{Chaim-Leib Halbert (SID 20516204)\\Saul Fuhrmann}
@@ -12,7 +14,14 @@
 \rfoot{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0 pt}
-    
+
+% indent
+\newcommand{\ind}[2]{
+	\begin{addmargin}[#1]{0pt}
+		{#2}
+	\end{addmargin}
+}
+
 \begin{document}
 \subsection*{1}
 \textbf{a.}
