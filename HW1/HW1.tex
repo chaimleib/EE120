@@ -25,226 +25,245 @@
 
 
 \begin{document}
-\subsection*{1}
-\begin{enumerate}[a.]
-\item Radiosurgery
+\begin{enumerate}[1)]  % problem numbers
 
-\begin{description}
-    \item[Input:] radiation beam
-    \item[System:] patient
-    \item[Output:] effect on patient
-\end{description}
-
-System is partially-known, output is directly measured, input is designed
-
-
-\item medical magnetic resonance imaging
-
-\begin{description}
-    \item[Input:] magnetic beam
-    \item[System:] patient
-    \item[Output:] resonance measurements
-\end{description}
-
-System is unknown, output is directly measured, input is known
-
-\item reflection seismology
-
-\begin{description}
-    \item[Input:] explosion
-    \item[System:] earth
-    \item[Output:] pressure wave measurements
-\end{description}
-
-System is unknown, output is directly measured, input is known
-
-\item digital camera
-
-\begin{description}
-    \item[Input:] light from the scene
-    \item[System:] CCD sensor
-    \item[Output:] digital image
-\end{description}
-
-System is known, output is directly measured, input is unknown
-
-\item Facebook user experiments (6/14)
-
-\begin{description}
-    \item[Input:] news feed stories
-    \item[System:] Facebook users
-    \item[Output:] tone of subsequent posts from the users
-\end{description}
-
-System is unknown, output is measured, input is designed
-\end{enumerate}
-
-
-\subsection*{2} 
-See attached sketch.
-
-
-\subsection*{3}
-\begin{enumerate}[a.]
+%1
 \item
-$\delta_1(t) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t|}$\\*
-Property \#1 \\*
-$\delta_1(t - t_0) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t - t_0|}$
+    \begin{enumerate}[a.]
+    %a
+    \item Radiosurgery
+        \begin{description}
+            \item[Input:] radiation beam
+            \item[System:] patient
+            \item[Output:] effect on patient
+        \end{description}
 
-Let's explore two cases $|t - t_0| = 0$ and $|t - t_0| = m \neq 0$, in case 1, 
-the limit takes the value of $\lim_{a \to \infty} \frac{a}{2} e^{0} = \lim_{a \to \infty} \frac{a}{2}$ 
-which is clearly non-zero.
+        System is partially-known, output is directly measured, input is designed
 
-When $|t - t_0| = m \neq 0$ the limit is:
-\[
-\lim_{a \to \infty} \frac{a}{2} e^{-am} = 
-\lim_{a \to \infty} \frac{\frac{a}{2} }{e^{am}}
-\]
-using L'Hopital's rule we get that:
-\[ =
-\lim_{a \to \infty} \frac{\frac{1}{2} }{me^{am}} = 0
-\]
-Property \#2
-\[
-\lim_{a \to \infty} \int_{-\infty}^{\infty}\frac{a}{2} e^{-a|t|}\,dt = 
-\lim_{a \to \infty} \frac{a}{2} 2 \int_{0}^{\infty} e^{-at}\,dt 
-\]
-\[
-= \lim_{a \to \infty} \frac{1}{a} e^{-at} |_{0}^{\infty}
-= \lim_{a \to \infty} \frac{a}{a}
-\]
-\[= 1\]
+    %b
+    \item medical magnetic resonance imaging
+        \begin{description}
+            \item[Input:] magnetic beam
+            \item[System:] patient
+            \item[Output:] resonance measurements
+        \end{description}
 
+        System is unknown, output is directly measured, input is known
+
+    %c
+    \item reflection seismology
+        \begin{description}
+            \item[Input:] explosion
+            \item[System:] earth
+            \item[Output:] pressure wave measurements
+        \end{description}
+
+        System is unknown, output is directly measured, input is known
+
+    %d
+    \item digital camera
+        \begin{description}
+            \item[Input:] light from the scene
+            \item[System:] CCD sensor
+            \item[Output:] digital image
+        \end{description}
+
+        System is known, output is directly measured, input is unknown
+
+    %e
+    \item Facebook user experiments (6/14)
+        \begin{description}
+            \item[Input:] news feed stories
+            \item[System:] Facebook users
+            \item[Output:] tone of subsequent posts from the users
+        \end{description}
+
+        System is unknown, output is measured, input is designed
+    \end{enumerate}
+
+
+%2
 \item
-$\delta_2(t) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{t - a}{2a})$\\*
-Property \#1
-\[
-\delta_2(t - t_0) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{(t -t_0) - a}{2a})
-\]
-By using standard shifting and scaling we can write $\Pi(\frac{(t -t_0) - a}{2a})$ piecewise:
-\[\Pi(\frac{(t -t_0) - a}{2a}) = \left\{
-  \begin{array}{lr}
-    1 & : t \in [t_0, t_0 + 2a]\\
-    0 & : t \not\in [t_0, t_0 + 2a]
-  \end{array}
-\right.
-\]
-As the $a \to 0$ the only value that stays consistantly non-0 is $t = t_0$
-all the other values become zero.
-\\*
-Property \#2
-\[
-\lim_{a \to 0} \int_{-\infty}^{\infty}\frac{1}{2a} \Pi(\frac{t - a}{2a})dt = 
-\lim_{a \to 0} \frac{1}{2a} \int_{0}^{2a}dt 
-= \lim_{a \to 0} \frac{2a}{2a} 
-\]
-\[= 1\]
-\end{enumerate}
+    See attached sketch.
 
-\subsection*{4}
+
+%3
+\item
+    \begin{enumerate}[a.]
+    %a
+    \item
+        $\delta_1(t) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t|}$\\*
+        Property \#1 \\*
+        $\delta_1(t - t_0) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t - t_0|}$
+
+        Let's explore two cases $|t - t_0| = 0$ and $|t - t_0| = m \neq 0$, in case 1, 
+        the limit takes the value of $\lim_{a \to \infty} \frac{a}{2} e^{0} = \lim_{a \to \infty} \frac{a}{2}$ 
+        which is clearly non-zero.
+
+        When $|t - t_0| = m \neq 0$ the limit is:
+        \[
+        \lim_{a \to \infty} \frac{a}{2} e^{-am} = 
+        \lim_{a \to \infty} \frac{\frac{a}{2} }{e^{am}}
+        \]
+        using L'Hopital's rule we get that:
+        \[ =
+        \lim_{a \to \infty} \frac{\frac{1}{2} }{me^{am}} = 0
+        \]
+        Property \#2
+        \[
+        \lim_{a \to \infty} \int_{-\infty}^{\infty}\frac{a}{2} e^{-a|t|}\,dt = 
+        \lim_{a \to \infty} \frac{a}{2} 2 \int_{0}^{\infty} e^{-at}\,dt 
+        \]
+        \[
+        = \lim_{a \to \infty} \frac{1}{a} e^{-at} |_{0}^{\infty}
+        = \lim_{a \to \infty} \frac{a}{a}
+        \]
+        \[= 1\]
+
+    %b
+    \item
+        $\delta_2(t) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{t - a}{2a})$\\*
+        Property \#1
+        \[
+        \delta_2(t - t_0) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{(t -t_0) - a}{2a})
+        \]
+        By using standard shifting and scaling we can write $\Pi(\frac{(t -t_0) - a}{2a})$ piecewise:
+        \[\Pi(\frac{(t -t_0) - a}{2a}) = \left\{
+          \begin{array}{lr}
+            1 & : t \in [t_0, t_0 + 2a]\\
+            0 & : t \not\in [t_0, t_0 + 2a]
+          \end{array}
+        \right.
+        \]
+        As the $a \to 0$ the only value that stays consistantly non-0 is $t = t_0$
+        all the other values become zero.
+        \\*
+        Property \#2
+        \[
+        \lim_{a \to 0} \int_{-\infty}^{\infty}\frac{1}{2a} \Pi(\frac{t - a}{2a})dt = 
+        \lim_{a \to 0} \frac{1}{2a} \int_{0}^{2a}dt 
+        = \lim_{a \to 0} \frac{2a}{2a} 
+        \]
+        \[= 1\]
+    \end{enumerate}
+
+%4
+\item
+    \begin{enumerate}[a.]
+    %a
+    \item
+        \[z \times z^* = (re^{j\theta})(re^{-j\theta}) = r^2 e^{j(\theta - \theta) = r^2} \]
+
+    %b
+    \item
+        \[ \frac{z}{z^*} = \frac{re^{j\theta}}{re^{-j\theta}} = \frac{r}{r} e^{j (\theta + \theta)} = e^{2j\theta} \]
+    
+    %c
+    \item
+        \[(z_1 z_2)^* = (r_1 e^{j \theta_1} r_2 e^{j \theta_2})^* = (r_1 r_2 e^{-j(\theta_1 + \theta_2)})^* = r_1 r_2 e^{-j(\theta_1 + \theta_2)}\]
+        \[z_1^* z_2^* = (r_1e^{j\theta_1})^* (r_2e^{j\theta_2})^* = (r_1e^{-j\theta_1}) (r_2e^{-j\theta_2})  = r_1 r_2 e^{-j(\theta_1 + \theta_2)} \]
+        \[\rightarrow z_1^* z_2^* = (z_1 z_2)^*\]
+    
+    %d
+    \item
+        \[
+        (\frac{z_1}{z_2})^*  = (\frac{r_1e^{j\theta_1}}{r_2e^{j\theta_2}})^* =   (\frac{r_1}{r_2} e^{j(\theta_1 - \theta_2)})^* =     
+        \frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}
+        \]
+
+        \[
+        \frac{z_1^*}{z_2^*} =
+        \frac{r_1 e^{-j\theta_1}}{r_2 e^{-j\theta_2}} = 
+        \frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}
+        \]
+        \[
+        \rightarrow
+        \frac{z_1^*}{z_2^*} =(\frac{z_1}{z_2})^* 
+        \]
+    \end{enumerate}
+
+%5
+\item
+    \begin{enumerate}[a.]
+    %a
+    \item $u(t)$
+        \[ Odd = \frac{u(t) - u(-t)}{2}\]
+        \[Evem = \frac{u(t) + u(-t)}{2} =  \frac{1}{2}\]
+
+    %b
+    \item $Cos(2\pi t)u(t)$
+        \[Odd = \frac{Cos(2\pi t)u(t) - Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) - u(-t))\]
+        \[Even = \frac{Cos(2\pi t)u(t) + Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) + u(-t))\]
+        \[ = \frac{Cos(2\pi t)}{2}\]
+    \end{enumerate}
+
+
+%6
+\item
+    \begin{enumerate}[a.]
+    %a
+    \item $h(t) = e^tu(t)$ is not \emph{BIBO} stable system, an example of a bounded input 
+        resulting in an unbound output is $x(t) = u(t)$ which results in the output
+        \begin{align*}
+        y(t) = h(t) * x(t) = 
+        \int_{-\infty}^{\infty} u(\tau)e^{t - \tau}u(t - \tau) \, d\tau \\
+        = \int_{0}^{t}e^{t - \tau} \, d\tau 
+        = e^t \int_{0}^{t}e^{-\tau} \, d\tau = \\
+        = \boxed{e^t (1 - e^{-t})}
+        \\
+        \end{align*}
+        which is an unbound function.
+
+    %b
+    \item $h(t) = (t - 1)^2e^{1-t}u(t)$ The system is \emph{BIBO} stable since:
+        \begin{align*}
+        	y(t) = h(t) * x(t) = 
+        	\int_{-\infty}^{\infty} |u(t)e^{1 - t}(t - 1)^2 \, dt \\
+        	= e
+        \end{align*}
+        which is bound, hance the integral is bound.
+    
+    %c
+    \item $h[n] = u[n - 4]$ is not \emph{BIBO} stable system, an example of a bounded input 
+        resulting in an unbound output is $x(t) = u(t)$ which results in the output:
+        \begin{align*}
+        y[t] = h[t] * x[t] = 
+        \sum_{k = -\infty}^{\infty} u[k] u[n - k - 4] = \sum_{k = 0}^{n - 4} 1 \\
+        = n - 4 + 1 = \boxed{n - 3}
+        \end{align*}
+        which is an unbound function. Therefore, the system is not BIBO stable
+
+    %d
+    \item $Cos[2\pi n] u[n]$ is not \emph{BIBO} stable system, an example of a bounded input 
+        resulting in an unbound output is $x[n]= u[n]$ which results in the output
+        \begin{align*}
+        y[t] = h[t] * x[t] = 
+        \sum_{k = -\infty}^{\infty} u[k] u[n - k] 
+        = \sum_{k = 0}^{n} 1 
+        = \boxed{n +1 }
+        \end{align*}
+        which is clearly unbound.
+    
+    %e
+    \item $\sum_{n = -\infty}^{\infty}\delta(t - 2n)$ is not \emph{BIBO} stable system, an example of a bounded input 
+        resulting in an unbound output is $x(t)= u(t)$ which results in the output
+        \begin{align*}
+        	y(t) = h(t) * x(t) = 
+        	\int_{-\infty}^{\infty} u(t - \tau)\sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau \\
+        	= \int_{-\infty}^{t} \sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau = 
+        	\sum_{n = -\infty}^{\infty}  \int_{-\infty}^{t} \delta(\tau - 2n) \, d\tau \\
+        	= \sum_{n = -\infty}^{\left \lfloor{\frac{t}{2}}\right \rfloor } 1 
+        	= \boxed{\infty}
+        \end{align*}
+        which is clearly unbound
+    \end{enumerate}
+
+
+%7
+\item
 
 \begin{enumerate}[a.]
-\item
-\[z \times z^* = (re^{j\theta})(re^{-j\theta}) = r^2 e^{j(\theta - \theta) = r^2} \]
-
-\item
-\[ \frac{z}{z^*} = \frac{re^{j\theta}}{re^{-j\theta}} = \frac{r}{r} e^{j (\theta + \theta)} = e^{2j\theta} \]
-
-\item
-\[(z_1 z_2)^* = (r_1 e^{j \theta_1} r_2 e^{j \theta_2})^* = (r_1 r_2 e^{-j(\theta_1 + \theta_2)})^* = r_1 r_2 e^{-j(\theta_1 + \theta_2)}\]
-\[z_1^* z_2^* = (r_1e^{j\theta_1})^* (r_2e^{j\theta_2})^* = (r_1e^{-j\theta_1}) (r_2e^{-j\theta_2})  = r_1 r_2 e^{-j(\theta_1 + \theta_2)} \]
-\[\rightarrow z_1^* z_2^* = (z_1 z_2)^*\]
-
-\item
-\[
-(\frac{z_1}{z_2})^*  = (\frac{r_1e^{j\theta_1}}{r_2e^{j\theta_2}})^* =   (\frac{r_1}{r_2} e^{j(\theta_1 - \theta_2)})^* =     
-\frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}
-\]
-
-\[
-\frac{z_1^*}{z_2^*} =
-\frac{r_1 e^{-j\theta_1}}{r_2 e^{-j\theta_2}} = 
-\frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}
-\]
-\[
-\rightarrow
-\frac{z_1^*}{z_2^*} =(\frac{z_1}{z_2})^* 
-\]
-\end{enumerate}
-
-\subsection*{5}
-
-\begin{enumerate}[a.]
-\item $u(t)$
-\[ Odd = \frac{u(t) - u(-t)}{2}\]
-\[Evem = \frac{u(t) + u(-t)}{2} =  \frac{1}{2}\]
-
-\item $Cos(2\pi t)u(t)$
-\[Odd = \frac{Cos(2\pi t)u(t) - Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) - u(-t))\]
-\[Even = \frac{Cos(2\pi t)u(t) + Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) + u(-t))\]
-\[ = \frac{Cos(2\pi t)}{2}\]
-\end{enumerate}
-
-
-\subsection*{6}
-
-\begin{enumerate}[a.]
-\item $h(t) = e^tu(t)$ is not \emph{BIBO} stable system, an example of a bounded input 
-resulting in an unbound output is $x(t) = u(t)$ which results in the output
-\begin{align*}
-y(t) = h(t) * x(t) = 
-\int_{-\infty}^{\infty} u(\tau)e^{t - \tau}u(t - \tau) \, d\tau \\
-= \int_{0}^{t}e^{t - \tau} \, d\tau 
-= e^t \int_{0}^{t}e^{-\tau} \, d\tau = \\
-= \boxed{e^t (1 - e^{-t})}
-\\
-\end{align*}
-which is an unbound function.
-
-\item $h(t) = (t - 1)^2e^{1-t}u(t)$ The system is \emph{BIBO} stable since:
-\begin{align*}
-	y(t) = h(t) * x(t) = 
-	\int_{-\infty}^{\infty} |u(t)e^{1 - t}(t - 1)^2 \, dt \\
-	= e
-\end{align*}
-which is bound, hance the integral is bound.
-
-\item $h[n] = u[n - 4]$ is not \emph{BIBO} stable system, an example of a bounded input 
-resulting in an unbound output is $x(t) = u(t)$ which results in the output:
-\begin{align*}
-y[t] = h[t] * x[t] = 
-\sum_{k = -\infty}^{\infty} u[k] u[n - k - 4] = \sum_{k = 0}^{n - 4} 1 \\
-= n - 4 + 1 = \boxed{n - 3}
-\end{align*}
-which is an unbound function. Therefore, the system is not BIBO stable
-
-\item $Cos[2\pi n] u[n]$ is not \emph{BIBO} stable system, an example of a bounded input 
-resulting in an unbound output is $x[n]= u[n]$ which results in the output
-\begin{align*}
-y[t] = h[t] * x[t] = 
-\sum_{k = -\infty}^{\infty} u[k] u[n - k] 
-= \sum_{k = 0}^{n} 1 
-= \boxed{n +1 }
-\end{align*}
-which is clearly unbound.
-
-\item $\sum_{n = -\infty}^{\infty}\delta(t - 2n)$ is not \emph{BIBO} stable system, an example of a bounded input 
-resulting in an unbound output is $x(t)= u(t)$ which results in the output
-\begin{align*}
-	y(t) = h(t) * x(t) = 
-	\int_{-\infty}^{\infty} u(t - \tau)\sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau \\
-	= \int_{-\infty}^{t} \sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau = 
-	\sum_{n = -\infty}^{\infty}  \int_{-\infty}^{t} \delta(\tau - 2n) \, d\tau \\
-	= \sum_{n = -\infty}^{\left \lfloor{\frac{t}{2}}\right \rfloor } 1 
-	= \boxed{\infty}
-\end{align*}
-which is clearly unbound
-\end{enumerate}
-
-
-\subsection*{7}
-
-\begin{enumerate}[a.]
+%a
 \item
 $x(t) = \Pi ( t - 1); h(t) = r(t)$ \\*
 \begin{align*}
@@ -270,6 +289,7 @@ $x(t) = \Pi ( t - 1); h(t) = r(t)$ \\*
 	}
 \end{align*}
 
+%b
 \item
 $x(t) = e^{-t}u(t); h(t) = \Pi (t - \frac{1}{2})$\\*
 \begin{align*}
@@ -293,17 +313,20 @@ $x(t) = e^{-t}u(t); h(t) = \Pi (t - \frac{1}{2})$\\*
 	}
 \end{align*}
 
+%c
 \item
-$x(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) ; h(t) = \Pi(t)Sin(2\pi t)$\\*
+$x(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) ; h(t) = \Pi(t)\sin(2\pi t)$\\*
 \begin{align*}
 	y(t) = x(t) * h(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) * h(t)	= 
 	\sum_{n = -\infty}^{\infty}h(t - \frac{1}{2} - n) = \\
-	\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)Sin(2\pi (t - \frac{1}{2} - n)) = 
-	\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)Sin(2\pi t - \pi - 2 n \pi ) = \\
-	-\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)Sin(2\pi t) = \\
-	\boxed{Sin(2\pi t)}
+	\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)\sin(2\pi (t - \frac{1}{2} - n)) = 
+	\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)\sin(2\pi t - \pi - 2 n \pi ) = \\
+	-\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)\sin(2\pi t) = \\
+	\boxed{\sin(2\pi t)}
 \end{align*}
 \end{enumerate}
+
+\end{enumerate}  % problem numbers
 \end{document}
 
 
