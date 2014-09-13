@@ -2,7 +2,6 @@
 \usepackage{amsmath}
 \usepackage[margin=1.25in]{geometry}
 \usepackage{enumerate}
-\usepackage{scrextend}
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
@@ -15,14 +14,6 @@
 \rfoot{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0 pt}
-
-% indent
-\newcommand{\ind}[2]{
-	\begin{addmargin}[#1]{0pt}
-		{#2}
-	\end{addmargin}
-}
-
 
 \begin{document}
 \begin{enumerate}[1)]  % problem numbers
@@ -188,7 +179,7 @@
     %a
     \item $u(t)$
         \[ Odd = \frac{u(t) - u(-t)}{2}\]
-        \[Evem = \frac{u(t) + u(-t)}{2} =  \frac{1}{2}\]
+        \[ Even = \frac{u(t) + u(-t)}{2} =  \frac{1}{2}\]
 
     %b
     \item $Cos(2\pi t)u(t)$
