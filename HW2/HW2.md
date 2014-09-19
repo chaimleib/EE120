@@ -112,7 +112,18 @@ To render to PDF, install pandoc and latex. Then, run make.
             &= \boxed{ \frac{20\sin(\frac{1}{8}w_0 k)}{w_0 k} }
         \end{align*}
 
-    c.  **[TODO]**
+    c.  $(\Pi(t - 1) * \Pi(t / 2)) * \text{comb}(t / 10)$, by examination of the signal, we get that the period is $T_0 = 10$ and the fundamental frequency
+        $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
+        \begin{align*}
+            a_k &= 10 \int_{-\frac{1}{2}}^{\frac{5}{2}} e^{-jw_0 k t} (\Pi(t - 1) * \Pi(t / 2)) dt \\
+                &= \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{-jw_0 k t} (\frac{1}{2} + t)dt \, +
+            \int_{\frac{1}{2}}^{\frac{3}{2}} e^{-jw_0 k t} dt\, +
+            \int_{\frac{3}{2}}^{\frac{5}{2}} e^{-jw_0 k t}(\frac{5}{2} - t) dt
+        \end{align*}
+        
+        $$
+            \boxed{a_k = \frac{4 e^{j k w} \sin \left(\frac{k w}{2}\right) \sin (k w)}{k^2 w^2}}
+        $$
 
 5.  a.  $$
             a_k = \sum_{n = 0}^{8 - 1} (\delta[n - 1] + \delta[n - 2]) e^{-j n k \frac{2\pi}{8}}
