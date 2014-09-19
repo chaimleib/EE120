@@ -24,6 +24,7 @@ Therefore, if $(h_1(t) * h(t)) = \delta(t)$ (which is trivial) we get that
 
 \subsection*{2.}
 \textbf{a.}
+\textbf{ADD Diagram}\\
 \textbf{b.}
 \[\ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t) \]
 Since $e^{jwt}$ is an eigenfunction for the above LTI system, we get that
@@ -37,7 +38,17 @@ A_w = \frac{10^3}{-w^2 + 10^4 + 300 w j}  =
 \end{align*}
 \subsection*{3.}
 \textbf{a.}
+\textbf{ADD Diagram}\\
 \textbf{b.}
+\[y[n] + 300 y[n - 1] + 1700 y[n - 2] = x[n] + 20x[n-1]\]
+Since $e^{jwn}$ is an eigenfunction for the above LTI system, we get that
+$y[n] = A_w e^{jwt}$, $y[n - 1] = A_w e^{jwn} e^{-jw}$, $y[n - 2] = A_w  e^{jwn} e^{-2jw}$
+,and $x[n] = e^{jwn}$ Substituting all of these into the equation yields:
+\begin{align*}
+A_w e^{jwt} + A_w e^{jwt}300  e^{-jw} + A_w e^{jwt} 1700 e{-2jw} =e^{jwt} + e^{jwt} 20 e^{-jw}= \\
+A_w e^{jwt}(1 +  1300  e^{-jw} + 1700 e{-2jw}) =e^{jwt}(1 + 20e^{-jw}) \rightarrow \\
+\boxed{A_w = \frac{(1 + 20e^{-jw})}{(1 +  1300  e^{-jw} + 1700 e{-2jw})}}
+\end{align*}
 \subsection*{4.}
 \textbf{a.}
 \textbf{b.}
@@ -51,3 +62,21 @@ A_w = \frac{10^3}{-w^2 + 10^4 + 300 w j}  =
 \textbf{c.}
 \textbf{d.}
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
