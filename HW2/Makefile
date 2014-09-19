@@ -11,7 +11,7 @@ OPTIONS+=-V geometry:margin=1in
 all: pandoc render open cleantemps cleanlogs
 verbose: pandoc render open openlog cleantemps
 clean: cleantemps cleanlogs cleanoutput
-
+run: all
 
 pandoc: $(TARGET).md
 	pandoc \
