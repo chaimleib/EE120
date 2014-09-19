@@ -48,8 +48,6 @@ render: $(TARGET).tex
 	#	-o $(TARGET).pdf
 
 open: $(TARGET).pdf
-	env | grep OS
-	@echo $(OSTYPE):$(PLATFORM):$(OPEN)
 	$(OPEN) $(TARGET).pdf
 
 openlog: $(TARGET).log
