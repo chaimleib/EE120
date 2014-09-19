@@ -80,7 +80,7 @@ To render to PDF, install pandoc and latex. Then, run make.
                 &= \boxed{\frac{10^3 (-w^2 + 10^4 - 300wj)}{ (-w^2 + 10^4)^2 + (300 w)^2}}
         \end{align*}
 
-3)  a.  **[ADD Diagram]**
+3)  a.  For the diagram, see attached.
 
     b.  $$
             y[n] + 20 y[n - 1] + 1700 y[n - 2] = x[n] + 20x[n-1]
@@ -162,7 +162,21 @@ To render to PDF, install pandoc and latex. Then, run make.
             \boxed{a_k = \frac{1 + e^{-jk 2\pi}}{1 + e^{-jk\frac{\pi}{16}}}}
         $$
 
-6.  a.  **[TODO]**
+6.  a.  $x_1(t) = \cos\left(t \frac{2 \pi}{(\frac{1}{60})}\right)$
+        Therefore $T_0 = \frac{1}{60}$ and $w_0 = \frac{2 \pi}{(\frac{1}{60})}$, we can use Euler's identity to write $x_1(t)$ as:
+        $$
+            x_1(t) = \frac{e^{t j w_0} + e^{-t j w_0}}{2}
+        $$
+
+        hence the Fourier Series is:
+        $$
+            x_1(t) = \frac{1}{2}e^{t j w_0} + \frac{1}{2}e^{- t j w_0}
+        $$
+
+        And its power is ultimately
+        $$
+            \boxed{P = \left( \frac{1}{2} \right)^2 + \left( \frac{1}{2} \right)^2 = \frac{1}{2}}
+        $$
     
     b.  **[TODO]** 
     

@@ -119,6 +119,8 @@
         y(t) + 300\int y(t) dt + 2 \times 10^4 \iint y(t) dt^2 = 10^3 \int x(t) dt \\
         y(t) = 10^3 \int x(t) dt - 300\int y(t) dt - 2 \times 10^4 \iint y(t) dt^2
     \end{align*}
+
+    For the diagram, see the attached.
   \item
     \[
         \ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t)
@@ -149,7 +151,7 @@
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
   \item
-    \textbf{{[}ADD Diagram{]}}
+    For the diagram, see attached.
   \item
     \[
         y[n] + 20 y[n - 1] + 1700 y[n - 2] = x[n] + 20x[n-1]
@@ -262,7 +264,20 @@
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
   \item
-    \textbf{{[}TODO{]}}
+    \(x_1(t) = \cos\left(t \frac{2 \pi}{(\frac{1}{60})}\right)\)
+    Therefore \(T_0 = \frac{1}{60}\) and
+    \(w_0 = \frac{2 \pi}{(\frac{1}{60})}\), we can use Euler's identity
+    to write \(x_1(t)\) as: \[
+        x_1(t) = \frac{e^{t j w_0} + e^{-t j w_0}}{2}
+    \]
+
+    hence the Fourier Series is: \[
+        x_1(t) = \frac{1}{2}e^{t j w_0} + \frac{1}{2}e^{- t j w_0}
+    \]
+
+    And its power is ultimately \[
+        \boxed{P = \left( \frac{1}{2} \right)^2 + \left( \frac{1}{2} \right)^2 = \frac{1}{2}}
+    \]
   \item
     \textbf{{[}TODO{]}}
   \item
