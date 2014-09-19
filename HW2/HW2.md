@@ -9,9 +9,9 @@ To render to PDF, install pandoc and latex. Then, run make.
             h(t) = \sum_{k = 0}^\infty \alpha^k \delta(t - kT)
         $$
     
-    b.  The system is BIBO stable if $\int_infty^\infty |h(t)|dt$ is bound. In our case we get that this integral is equal:
+    b.  The system is BIBO stable if $\int_{-\infty}^\infty |h(t)|dt$ is bound. In our case we get that this integral is equal:
         $$
-            \int_\infty^\infty \left| 
+            \int_{-\infty}^\infty \left| 
                 \sum_{k = 0}^\infty \alpha^k \delta(t - kT)
             \right| dt
         $$
@@ -44,7 +44,18 @@ To render to PDF, install pandoc and latex. Then, run make.
             h_1(t) * y(t)  = x(t)
         $$
 
-2)  a.  **[ADD Diagram]**
+2)  a.  Starting with the problem
+        $$
+            \ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t)
+        $$
+        
+        we integrate it over time twice to yield
+        \begin{align*}
+            y(t) + 300\int y(t) dt + 2 \times 10^4 \iint y(t) dt^2 = 10^3 \int x(t) dt \\
+            y(t) = 10^3 \int x(t) dt - 300\int y(t) dt - 2 \times 10^4 \iint y(t) dt^2
+        \end{align*}
+        
+        For the diagram, see the attached.
     
     b.  $$
             \ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t)
@@ -94,16 +105,22 @@ To render to PDF, install pandoc and latex. Then, run make.
             \boxed{A_w = \frac{(1 + 20e^{-jw})}{(1 +  20  e^{-jw} + 1700 e{-2jw})}}
         $$
 
-4)  a. $\Pi(t / 8) * \text{comb}(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
+4)  a.  $$
+            \Pi(t / 8) * \text{comb}(t / 10)
+        $$
 
+        By examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency is $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
         \begin{align*}
             a_k &= 10\int_{-4}^{4} e^{-jw_0 k t} dt \\
                 &= 10 \frac{1}{-jw_0kt} \left(  e^{-jw_0k4}- e^{jw_0k4}\right) \\
                 &= \boxed{ \frac{20\sin(4w_0 k)}{10 w_0 k} }
         \end{align*}
 
-    b.  $\Pi(4t) * \text{comb}(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
-
+    b.  $$
+            \Pi(4t) * \text{comb}(t / 10)
+        $$
+    
+        By examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency is $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
         \begin{align*}
             a_k &= 10 \int_{-\frac{1}{8}}^{\frac{1}{8}} e^{-jw_0 k t} dt \\
                 &= \frac{10}{-jw_0kt } \left(
@@ -112,13 +129,16 @@ To render to PDF, install pandoc and latex. Then, run make.
             &= \boxed{ \frac{20\sin(\frac{1}{8}w_0 k)}{w_0 k} }
         \end{align*}
 
-    c.  $(\Pi(t - 1) * \Pi(t / 2)) * \text{comb}(t / 10)$, by examination of the signal, we get that the period is $T_0 = 10$ and the fundamental frequency
-        $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
+    c.  $$
+            \Big( \Pi(t - 1) * \Pi(t / 2) \Big) * \text{comb}(t / 10)
+        $$
+    
+        By examination of the signal, we get that the period is $T_0 = 10$ and the fundamental frequency is $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
         \begin{align*}
-            a_k &= 10 \int_{-\frac{1}{2}}^{\frac{5}{2}} e^{-jw_0 k t} (\Pi(t - 1) * \Pi(t / 2)) dt \\
-                &= \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{-jw_0 k t} (\frac{1}{2} + t)dt \, +
-            \int_{\frac{1}{2}}^{\frac{3}{2}} e^{-jw_0 k t} dt\, +
-            \int_{\frac{3}{2}}^{\frac{5}{2}} e^{-jw_0 k t}(\frac{5}{2} - t) dt
+            a_k &= 10 \int_{-\frac{1}{2}}^{\frac{5}{2}} e^{-jw_0 k t} \Big( \Pi(t - 1) * \Pi(t / 2) \Big) dt \\
+                &=  \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{-jw_0 k t} \left( \frac{1}{2} + t \right) dt \, +
+                    \int_{ \frac{1}{2}}^{\frac{3}{2}} e^{-jw_0 k t} dt\, +
+                    \int_{ \frac{3}{2}}^{\frac{5}{2}} e^{-jw_0 k t} \left( \frac{5}{2} - t \right) dt
         \end{align*}
         
         $$
@@ -134,12 +154,12 @@ To render to PDF, install pandoc and latex. Then, run make.
         $$
     
     b.  \begin{align*}
-            a_k &= \sum_{n = 0}^{32 - 1} ((-1)^n ) e^{-j n k \frac{2\pi}{32}} \\
+            a_k &= \sum_{n = 0}^{32 - 1} (-1)^n ~ e^{-j n k \frac{2\pi}{32}} \\
                 &= \sum_{n = 0}^{32 - 1} (-e^{-j k \frac{2\pi}{32}})^n \\
                 &= \frac{1 + e^{-jk(32) \frac{2\pi}{32} }}{1 + e^{-jk\frac{2\pi}{32}}}
         \end{align*}
         $$
-            a_k = \boxed{\frac{1 + e^{-jk 2\pi}}{1 + e^{-jk\frac{\pi}{16}}}}
+            \boxed{a_k = \frac{1 + e^{-jk 2\pi}}{1 + e^{-jk\frac{\pi}{16}}}}
         $$
 
 6.  a.  **[TODO]**

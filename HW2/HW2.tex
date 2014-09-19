@@ -70,9 +70,9 @@
         h(t) = \sum_{k = 0}^\infty \alpha^k \delta(t - kT)
     \]
   \item
-    The system is BIBO stable if \(\int_infty^\infty |h(t)|dt\) is
+    The system is BIBO stable if \(\int_{-\infty}^\infty |h(t)|dt\) is
     bound. In our case we get that this integral is equal: \[
-        \int_\infty^\infty \left| 
+        \int_{-\infty}^\infty \left| 
             \sum_{k = 0}^\infty \alpha^k \delta(t - kT)
         \right| dt
     \]
@@ -109,7 +109,16 @@
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
   \item
-    \textbf{{[}ADD Diagram{]}}
+    Starting with the problem \[
+        \ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t)
+    \]
+
+    we integrate it over time twice to yield
+
+    \begin{align*}
+        y(t) + 300\int y(t) dt + 2 \times 10^4 \iint y(t) dt^2 = 10^3 \int x(t) dt \\
+        y(t) = 10^3 \int x(t) dt - 300\int y(t) dt - 2 \times 10^4 \iint y(t) dt^2
+    \end{align*}
   \item
     \[
         \ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t)
@@ -173,9 +182,13 @@
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
   \item
-    \(\Pi(t / 8) * \text{comb}(t / 10)\), by examination of the signal,
-    we get that the period is \(T_0 = 10\) and the fundamental frequency
-    \(\boxed{w_0 = \frac{\pi}{5}}\). We can compute \(a_k\) by:
+    \[
+        \Pi(t / 8) * \text{comb}(t / 10)
+    \]
+
+    By examination of the signal, we get that the period is \(T_0 = 10\)
+    and the fundamental frequency is \(\boxed{w_0 = \frac{\pi}{5}}\). We
+    can compute \(a_k\) by:
 
     \begin{align*}
         a_k &= 10\int_{-4}^{4} e^{-jw_0 k t} dt \\
@@ -183,9 +196,13 @@
             &= \boxed{ \frac{20\sin(4w_0 k)}{10 w_0 k} }
     \end{align*}
   \item
-    \(\Pi(4t) * \text{comb}(t / 10)\), by examination of the signal, we
-    get that the period is \(T_0 = 10\) and the fundamental frequency
-    \(\boxed{w_0 = \frac{\pi}{5}}\). We can compute \(a_k\) by:
+    \[
+        \Pi(4t) * \text{comb}(t / 10)
+    \]
+
+    By examination of the signal, we get that the period is \(T_0 = 10\)
+    and the fundamental frequency is \(\boxed{w_0 = \frac{\pi}{5}}\). We
+    can compute \(a_k\) by:
 
     \begin{align*}
         a_k &= 10 \int_{-\frac{1}{8}}^{\frac{1}{8}} e^{-jw_0 k t} dt \\
@@ -195,16 +212,19 @@
         &= \boxed{ \frac{20\sin(\frac{1}{8}w_0 k)}{w_0 k} }
     \end{align*}
   \item
-    \((\Pi(t - 1) * \Pi(t / 2)) * \text{comb}(t / 10)\), by examination
-    of the signal, we get that the period is \(T_0 = 10\) and the
-    fundamental frequency \(\boxed{w_0 = \frac{\pi}{5}}\). We can
-    compute \(a_k\) by:
+    \[
+        \Big( \Pi(t - 1) * \Pi(t / 2) \Big) * \text{comb}(t / 10)
+    \]
+
+    By examination of the signal, we get that the period is \(T_0 = 10\)
+    and the fundamental frequency is \(\boxed{w_0 = \frac{\pi}{5}}\). We
+    can compute \(a_k\) by:
 
     \begin{align*}
-        a_k &= 10 \int_{-\frac{1}{2}}^{\frac{5}{2}} e^{-jw_0 k t} (\Pi(t - 1) * \Pi(t / 2)) dt \\
-            &= \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{-jw_0 k t} (\frac{1}{2} + t)dt \, +
-        \int_{\frac{1}{2}}^{\frac{3}{2}} e^{-jw_0 k t} dt\, +
-        \int_{\frac{3}{2}}^{\frac{5}{2}} e^{-jw_0 k t}(\frac{5}{2} - t) dt
+        a_k &= 10 \int_{-\frac{1}{2}}^{\frac{5}{2}} e^{-jw_0 k t} \Big( \Pi(t - 1) * \Pi(t / 2) \Big) dt \\
+            &=  \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{-jw_0 k t} \left( \frac{1}{2} + t \right) dt \, +
+                \int_{ \frac{1}{2}}^{\frac{3}{2}} e^{-jw_0 k t} dt\, +
+                \int_{ \frac{3}{2}}^{\frac{5}{2}} e^{-jw_0 k t} \left( \frac{5}{2} - t \right) dt
     \end{align*}
 
     \[
@@ -229,13 +249,13 @@
     \]
   \item
     \begin{align*}
-        a_k &= \sum_{n = 0}^{32 - 1} ((-1)^n ) e^{-j n k \frac{2\pi}{32}} \\
+        a_k &= \sum_{n = 0}^{32 - 1} (-1)^n ~ e^{-j n k \frac{2\pi}{32}} \\
             &= \sum_{n = 0}^{32 - 1} (-e^{-j k \frac{2\pi}{32}})^n \\
             &= \frac{1 + e^{-jk(32) \frac{2\pi}{32} }}{1 + e^{-jk\frac{2\pi}{32}}}
     \end{align*}
 
     \[
-        a_k = \boxed{\frac{1 + e^{-jk 2\pi}}{1 + e^{-jk\frac{\pi}{16}}}}
+        \boxed{a_k = \frac{1 + e^{-jk 2\pi}}{1 + e^{-jk\frac{\pi}{16}}}}
     \]
   \end{enumerate}
 \item
