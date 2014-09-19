@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\begin{document}
+\subsection*{1.}
+\textbf{a.}The impulse response of the system $y(t) = x(t) + \alpha y(t - T)$  is simply:
+\[h(t) = \sum_{k = 0}^\infty \alpha^k \delta(t - kT)  \]
+\textbf{b.}
+The system is BIBO stable if $\int_infty^\infty |h(t)|dt$ is bound. In our case we get that this integral is equal:
+\[\int_\infty^\infty |\sum_{k = 0}^\infty \alpha^k \delta(t - kT)| dt\]
+if alpha is positive we get that:
+\[
+\sum_{k = 0}^\infty \int_0^\infty \alpha^k \delta(t - kT)dt  = 
+\sum_{k = 0}^\infty \alpha^k
+\]
+Which is bound if $\alpha < 1$ and unbound otherwise.
+Hence, if $0 \leq \alpha < 1$ the system is BIBO stable, and it is unstable otherwise.\\
+\textbf{c.}
+An LTI system that would invert $h(t) = \sum_{k = 0}^\infty \alpha^k \delta(t - kT)$ is 
+$\boxed{h_1(t) = \delta(t) - \alpha \delta(t - T)}$
+We can show this by looking at the properties of the convolution.
+\[y(t) = x(t) * h(t) \rightarrow h_1(t) * y(t) = h_1(t) * (x(t) * h(t)) = (h_1(t) * h(t)) * x(t)\]
+Therefore, if $(h_1(t) * h(t)) = \delta(t)$ (which is trivial) we get that 
+\[ h_1(t) * y(t)  = x(t)\]
+
+\subsection*{2.}
+\textbf{a.}
+\textbf{b.}
+\subsection*{3.}
+\textbf{a.}
+\textbf{b.}
+\subsection*{4.}
+\textbf{a.}
+\textbf{b.}
+\textbf{c.}
+\subsection*{5.}
+\textbf{a.}
+\textbf{b.}
+\subsection*{6.}
+\textbf{a.}
+\textbf{b.}
+\textbf{c.}
+\textbf{d.}
+\end{document}
