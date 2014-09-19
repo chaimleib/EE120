@@ -25,6 +25,16 @@ Therefore, if $(h_1(t) * h(t)) = \delta(t)$ (which is trivial) we get that
 \subsection*{2.}
 \textbf{a.}
 \textbf{b.}
+\[\ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t) \]
+Since $e^{jwt}$ is an eigenfunction for the above LTI system, we get that
+$y(t) = A_w e^{jwt}$, $\dot{y}(t) = A_w (jw) e^{jwt}$, $\ddot{y}(t) = A_w (wj)^2 e^{jwt}$
+, and $\dot{x}(t) = (jw) e^{jwt}$ Substituting all of these into the equation yields:
+\begin{align*}
+A_w (jw)^2 e^{jwt} + A_w 300 (jw) e^{jwt} + A_w 2 \times 10^4 e^{jwt} = 10^3 e^{jwt} \rightarrow\\
+e^{jwt} A_w ( (jw)^2 + 300(jw) + 10^4 ) = e^{jwt} 10^3 \rightarrow \\
+A_w = \frac{10^3}{-w^2 + 10^4 + 300 w j}  = 
+\boxed{\frac{10^3 (-w^2 + 10^4 - 300wj)}{ (-w^2 + 10^4)^2 + (300 w)^2}}
+\end{align*}
 \subsection*{3.}
 \textbf{a.}
 \textbf{b.}
