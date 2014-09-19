@@ -5,7 +5,7 @@
 TARGET=HW2
 TEMPLATE=default.latex
 
-OPTIONS+=-V geometry:margin=1in
+OPTIONS=-V geometry:margin=1in
 
 
 all: pandoc render open cleantemps cleanlogs
@@ -13,6 +13,14 @@ verbose: pandoc render open openlog cleantemps
 clean: cleantemps cleanlogs cleanoutput
 run: all
 
+
+PLATFORM=$(shell echo $OSTYPE | grep -o '[^0-9\-]\+')
+ifeq ($(PLATFORM), cygwin)
+	OPEN=cygstart
+else
+	OPEN=open
+endif
+	
 
 pandoc: $(TARGET).md
 	pandoc \
@@ -35,10 +43,10 @@ render: $(TARGET).tex
 	#	-o $(TARGET).pdf
 
 open: $(TARGET).pdf
-	open $(TARGET).pdf
+	$(OPEN) $(TARGET).pdf
 
 openlog: $(TARGET).log
-	open $(TARGET).log
+	$(OPEN) $(TARGET).log
 
 cleantemps:
 	rm -rf *.aux *.out
