@@ -51,7 +51,22 @@ A_w e^{jwt}(1 +  1300  e^{-jw} + 1700 e{-2jw}) =e^{jwt}(1 + 20e^{-jw}) \rightarr
 \end{align*}
 \subsection*{4.}
 \textbf{a.}
+$\Pi(t / 8) * comb(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency 
+$\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
+\begin{align*}
+a_k =10\int_{-4}^{4} e^{-jw_0 k t} dt  = 
+10 \frac{1}{-jw_0kt} \left(  e^{-jw_0k4}- e^{jw_0k4}\right)\\
+= \boxed{ \frac{20Sin(4w_0 k)}{10 w_0 k}  } 
+\end{align*}
+\\ 
 \textbf{b.}
+$\Pi(4t) * comb(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency 
+$\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
+\begin{align*}
+a_k = 10 \int_{-\frac{1}{8}}^{\frac{1}{8}} e^{-jw_0 k t} dt  = 
+\frac{10}{-jw_0kt } \left(  e^{-jw_0k\frac{1}{8}}- e^{jw_0k\frac{1}{8}}\right)\\
+= \boxed{ \frac{20Sin(\frac{1}{8}w_0 k)}{w_0 k}  } 
+\end{align*}
 \textbf{c.}
 \subsection*{5.}
 \textbf{a.}
