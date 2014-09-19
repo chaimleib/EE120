@@ -1,6 +1,8 @@
 # REQUIREMENTS
-#   latex
-#   pandoc
+#   latex   (use MacTeX, MikTeX, etc)
+#   pandoc	(use brew to install on Mac, Windows download from
+#   	https://github.com/jgm/pandoc/releases
+#   	)
 
 TARGET=HW2
 TEMPLATE=default.latex
@@ -14,7 +16,10 @@ clean: cleantemps cleanlogs cleanoutput
 run: all
 
 
-PLATFORM=$(shell echo $OSTYPE | grep -o '[^0-9\-]\+')
+PLATFORM=$(shell ([[ -n "$(OSTYPE)" ]] && echo $(OSTYPE) || echo $(OS) ) | grep -o '[^0-9\-]\+')
+ifeq ($(PLATFORM), Windows_NT)
+	PLATFORM=cygwin
+endif
 ifeq ($(PLATFORM), cygwin)
 	OPEN=cygstart
 else
@@ -43,6 +48,8 @@ render: $(TARGET).tex
 	#	-o $(TARGET).pdf
 
 open: $(TARGET).pdf
+	env | grep OS
+	@echo $(OSTYPE):$(PLATFORM):$(OPEN)
 	$(OPEN) $(TARGET).pdf
 
 openlog: $(TARGET).log
