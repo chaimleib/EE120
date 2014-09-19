@@ -13,6 +13,7 @@ verbose: pandoc render open openlog cleantemps
 clean: cleantemps cleanlogs cleanoutput
 run: all
 
+
 pandoc: $(TARGET).md
 	pandoc \
 		--latex-engine=xelatex \
