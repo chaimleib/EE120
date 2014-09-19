@@ -3,272 +3,128 @@ The latex template is in default.latex.
 
 To render to PDF, install pandoc and latex. Then, run make.
 -->
-1)  a.  Radiosurgery
 
-        Input:
+1)  a.  The impulse response of the system $y(t) = x(t) + \alpha y(t - T)$ is simply: 
+        $$
+            h(t) = \sum_{k = 0}^\infty \alpha^k \delta(t - kT)
+        $$
+    
+    b.  The system is BIBO stable if $\int_infty^\infty |h(t)|dt$ is bound. In our case we get that this integral is equal:
+        $$
+            \int_\infty^\infty \left| 
+                \sum_{k = 0}^\infty \alpha^k \delta(t - kT)
+            \right| dt
+        $$
+        
+        If $\alpha$ is positive we get that:
+        $$
+            \sum_{k = 0}^\infty \int_0^\infty \alpha^k \delta(t - kT)dt  = 
+                \sum_{k = 0}^\infty \alpha^k
+        $$ 
+        
+        This is bound if $\alpha < 1$ and unbound otherwise. Hence, if $0 \leq \alpha < 1$ the system is BIBO stable, and it is unstable otherwise.
+        
+    c.  $$
+            h(t) = \sum_{k = 0}^\infty \alpha^k \delta(t - kT)
+        $$ 
+        can also be inverted with the LTI system
+        $$
+            \boxed{h_1(t) = \delta(t) - \alpha \delta(t - T)}
+        $$
+        
+        We can show this by looking at the properties of the convolution:
+        \begin{align*}
+            y(t) &= x(t) * h(t) \\
+            h_1(t) * y(t) &= h_1(t) * \Big( x(t) * h(t) \Big) \\
+            &= \Big( h_1(t) * h(t) \Big) * x(t)
+        \end{align*}
+        
+        Therefore, if $(h_1(t) * h(t)) = \delta(t)$ (which is trivial) we get that 
+        $$
+            h_1(t) * y(t)  = x(t)
+        $$
 
-        :   radiation beam
+2)  a.  **[ADD Diagram]**
+    
+    b.  $$
+            \ddot{y}(t) + 300\dot{y}(t) + 2 \times 10^4 y(t) = 10^3 \dot{x}(t)
+        $$
 
-        System:
+        Since $e^{jwt}$ is an eigenfunction for the above LTI system, we get that 
+        \begin{align*}
+            y(t) &= A_w e^{jwt} \\
+            \dot{y}(t) &= A_w (jw) e^{jwt} \\
+            \ddot{y}(t) &= A_w (wj)^2 e^{jwt} \\
+            \dot{x}(t) &= (jw) e^{jwt}
+        \end{align*}
+        
+        Substituting all of these into the equation yields:
+        \begin{align*}
+            A_w (jw)^2 e^{jwt} + A_w 300 (jw) e^{jwt} + A_w 2 \times 10^4 e^{jwt} &= 
+                10^3 e^{jwt} \\
+            e^{jwt} A_w \Big( (jw)^2 + 300(jw) + 10^4 \Big) &= e^{jwt} 10^3
+        \end{align*}
+        \begin{align*}
+            A_w &= \frac{10^3}{-w^2 + 10^4 + 300 w j} \\
+                &= \boxed{\frac{10^3 (-w^2 + 10^4 - 300wj)}{ (-w^2 + 10^4)^2 + (300 w)^2}}
+        \end{align*}
 
-        :   patient
+3)  a.  **[ADD Diagram]**
 
-        Output:
+    b.  $$
+            y[n] + 20 y[n - 1] + 1700 y[n - 2] = x[n] + 20x[n-1]
+        $$ 
+        
+        Since $e^{jwn}$ is an eigenfunction for the above LTI system, we get that 
+        \begin{align*}
+            y[n] &= A_w e^{jwt} \\
+            y[n - 1] &= A_w e^{jwn} e^{-jw} \\
+            y[n - 2] &= A_w  e^{jwn} e^{-2jw} \\
+            x[n] &= e^{jwn}
+        \end{align*}
+        
+        Substituting all of these into the equation yields:
+        \begin{align*}
+            A_w e^{jwt} + A_w e^{jwt}20  e^{-jw} + A_w e^{jwt} 1700 e{-2jw} &= 
+                e^{jwt} + e^{jwt} 20 e^{-jw} \\
+            A_w e^{jwt}(1 +  20  e^{-jw} + 1700 e{-2jw}) &=
+                e^{jwt}(1 + 20e^{-jw})
+        \end{align*}
+        $$
+            \boxed{A_w = \frac{(1 + 20e^{-jw})}{(1 +  20  e^{-jw} + 1700 e{-2jw})}}
+        $$
 
-        :   effect on patient
-
-        System is partially-known, output is directly measured, input is
-        designed
-
-    b.  medical magnetic resonance imaging
-
-        Input:
-
-        :   magnetic beam
-
-        System:
-
-        :   patient
-
-        Output:
-
-        :   resonance measurements
-
-        System is unknown, output is directly measured, input is known
-
-    c.  reflection seismology
-
-        Input:
-
-        :   explosion
-
-        System:
-
-        :   earth
-
-        Output:
-
-        :   pressure wave measurements
-
-        System is unknown, output is directly measured, input is known
-
-    d.  digital camera
-
-        Input:
-
-        :   light from the scene
-
-        System:
-
-        :   CCD sensor
-
-        Output:
-
-        :   digital image
-
-        System is known, output is directly measured, input is unknown
-
-    e.  Facebook user experiments (6/14)
-
-        Input:
-
-        :   news feed stories
-
-        System:
-
-        :   Facebook users
-
-        Output:
-
-        :   tone of subsequent posts from the users
-
-        System is unknown, output is measured, input is designed
-
-2)  See attached sketch.
-
-3)  a.  $\delta_1(t) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t|}$\
-        Property \#1\
-        $\delta_1(t - t_0) = \lim_{a \to \infty} \frac{a}{2} e^{-a|t - t_0|}$
-
-        Let’s explore two cases $|t - t_0| = 0$ and
-        $|t - t_0| = m \neq 0$, in case 1, the limit takes the value of
-        $\lim_{a \to \infty} \frac{a}{2} e^{0} = \lim_{a \to \infty} \frac{a}{2}$
-        which is clearly non-zero.
-
-        When $|t - t_0| = m \neq 0$ the limit is:
-        $$\lim_{a \to \infty} \frac{a}{2} e^{-am} = 
-                \lim_{a \to \infty} \frac{\frac{a}{2} }{e^{am}}$$ using
-        L’Hopital’s rule we get that: $$=
-                \lim_{a \to \infty} \frac{\frac{1}{2} }{me^{am}} = 0$$
-        Property \#2
-        $$\lim_{a \to \infty} \int_{-\infty}^{\infty}\frac{a}{2} e^{-a|t|}\,dt = 
-                \lim_{a \to \infty} \frac{a}{2} 2 \int_{0}^{\infty} e^{-at}\,dt$$
-        $$= \lim_{a \to \infty} \frac{1}{a} e^{-at} |_{0}^{\infty}
-                = \lim_{a \to \infty} \frac{a}{a}$$ $$= 1$$
-
-    b.  $\delta_2(t) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{t - a}{2a})$\
-        Property \#1
-        $$\delta_2(t - t_0) = \lim_{a \to 0} \frac{1}{2a} \Pi(\frac{(t -t_0) - a}{2a})$$
-        By using standard shifting and scaling we can write
-        $\Pi(\frac{(t -t_0) - a}{2a})$ piecewise:
-        $$\Pi(\frac{(t -t_0) - a}{2a}) = \left\{
-                  \begin{array}{lr}
-                    1 & : t \in [t_0, t_0 + 2a]\\
-                    0 & : t \not\in [t_0, t_0 + 2a]
-                  \end{array}
-                \right.$$ As the $a \to 0$ the only value that stays
-        consistantly non-0 is $t = t_0$ all the other values become
-        zero.\
-        Property \#2
-        $$\lim_{a \to 0} \int_{-\infty}^{\infty}\frac{1}{2a} \Pi(\frac{t - a}{2a})dt = 
-                \lim_{a \to 0} \frac{1}{2a} \int_{0}^{2a}dt 
-                = \lim_{a \to 0} \frac{2a}{2a}$$ $$= 1$$
-
-4)  a.  $$z \times z^* = (re^{j\theta})(re^{-j\theta}) = r^2 e^{j(\theta - \theta) = r^2}$$
-
-    b.  $$\frac{z}{z^*} = \frac{re^{j\theta}}{re^{-j\theta}} = \frac{r}{r} e^{j (\theta + \theta)} = e^{2j\theta}$$
-
-    c.  $$(z_1 z_2)^* = (r_1 e^{j \theta_1} r_2 e^{j \theta_2})^* = (r_1 r_2 e^{-j(\theta_1 + \theta_2)})^* = r_1 r_2 e^{-j(\theta_1 + \theta_2)}$$
-        $$z_1^* z_2^* = (r_1e^{j\theta_1})^* (r_2e^{j\theta_2})^* = (r_1e^{-j\theta_1}) (r_2e^{-j\theta_2})  = r_1 r_2 e^{-j(\theta_1 + \theta_2)}$$
-        $$\rightarrow z_1^* z_2^* = (z_1 z_2)^*$$
-
-    d.  $$(\frac{z_1}{z_2})^*  = (\frac{r_1e^{j\theta_1}}{r_2e^{j\theta_2}})^* =   (\frac{r_1}{r_2} e^{j(\theta_1 - \theta_2)})^* =     
-                \frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}$$
-
-        $$\frac{z_1^*}{z_2^*} =
-                \frac{r_1 e^{-j\theta_1}}{r_2 e^{-j\theta_2}} = 
-                \frac{r_1}{r_2} e^{j(\theta_2 - \theta_1)}$$
-        $$\rightarrow
-                \frac{z_1^*}{z_2^*} =(\frac{z_1}{z_2})^*$$
-
-5)  a.  $u(t)$ $$Odd = \frac{u(t) - u(-t)}{2}$$
-        $$Evem = \frac{u(t) + u(-t)}{2} =  \frac{1}{2}$$
-
-    b.  $Cos(2\pi t)u(t)$
-        $$Odd = \frac{Cos(2\pi t)u(t) - Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) - u(-t))$$
-        $$Even = \frac{Cos(2\pi t)u(t) + Cos(-2\pi t)u(-t)}{2} = \frac{Cos(2\pi t)}{2}(u(t) + u(-t))$$
-        $$= \frac{Cos(2\pi t)}{2}$$
-
-6)  a.  $h(t) = e^tu(t)$ is not *BIBO* stable system, an example of a
-        bounded input resulting in an unbound output is $x(t) = u(t)$
-        which results in the output
+4)  a. $\Pi(t / 8) * comb(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
 
         $$\begin{aligned}
-                y(t) = h(t) * x(t) = 
-                \int_{-\infty}^{\infty} u(\tau)e^{t - \tau}u(t - \tau) \, d\tau \\
-                = \int_{0}^{t}e^{t - \tau} \, d\tau 
-                = e^t \int_{0}^{t}e^{-\tau} \, d\tau = \\
-                = \boxed{e^t (1 - e^{-t})}
-                \\
-                \end{aligned}$$
+            a_k = 
+                10\int_{-4}^{4} e^{-jw_0 k t} dt = 
+                10 \frac{1}{-jw_0kt} \left(  e^{-jw_0k4}- e^{jw_0k4}\right) \\
+            = \boxed{ \frac{20Sin(4w_0 k)}{10 w_0 k} } 
+        \end{aligned}$$
 
-        which is an unbound function.
-
-    b.  $h(t) = (t - 1)^2e^{1-t}u(t)$ The system is *BIBO* stable since:
+    b.  $\Pi(4t) * comb(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
 
         $$\begin{aligned}
-                    y(t) = h(t) * x(t) = 
-                    \int_{-\infty}^{\infty} |u(t)e^{1 - t}(t - 1)^2 \, dt \\
-                    = e
-                \end{aligned}$$
+            a_k = 
+                10 \int_{-\frac{1}{8}}^{\frac{1}{8}} e^{-jw_0 k t} dt  = 
+                \frac{10}{-jw_0kt } \left( 
+                    e^{-jw_0k\frac{1}{8}}- e^{jw_0k\frac{1}{8}}
+                \right) \\
+            = \boxed{ \frac{20Sin(\frac{1}{8}w_0 k)}{w_0 k} }
+        \end{aligned}$$
 
-        which is bound, hance the integral is bound.
+    c.  **[TODO]**
 
-    c.  $h[n] = u[n - 4]$ is not *BIBO* stable system, an example of a
-        bounded input resulting in an unbound output is $x(t) = u(t)$
-        which results in the output:
+5.  a.  **[TODO]** 
+    
+    b.  **[TODO]**
 
-        $$\begin{aligned}
-                y[t] = h[t] * x[t] = 
-                \sum_{k = -\infty}^{\infty} u[k] u[n - k - 4] = \sum_{k = 0}^{n - 4} 1 \\
-                = n - 4 + 1 = \boxed{n - 3}
-                \end{aligned}$$
-
-        which is an unbound function. Therefore, the system is not BIBO
-        stable
-
-    d.  $Cos[2\pi n] u[n]$ is not *BIBO* stable system, an example of a
-        bounded input resulting in an unbound output is $x[n]= u[n]$
-        which results in the output
-
-        $$\begin{aligned}
-                y[t] = h[t] * x[t] = 
-                \sum_{k = -\infty}^{\infty} u[k] u[n - k] 
-                = \sum_{k = 0}^{n} 1 
-                = \boxed{n +1 }
-                \end{aligned}$$
-
-        which is clearly unbound.
-
-    e.  $\sum_{n = -\infty}^{\infty}\delta(t - 2n)$ is not *BIBO* stable
-        system, an example of a bounded input resulting in an unbound
-        output is $x(t)= u(t)$ which results in the output
-
-        $$\begin{aligned}
-                    y(t) = h(t) * x(t) = 
-                    \int_{-\infty}^{\infty} u(t - \tau)\sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau \\
-                    = \int_{-\infty}^{t} \sum_{n = -\infty}^{\infty} \delta(\tau - 2n) \, d\tau = 
-                    \sum_{n = -\infty}^{\infty}  \int_{-\infty}^{t} \delta(\tau - 2n) \, d\tau \\
-                    = \sum_{n = -\infty}^{\left \lfloor{\frac{t}{2}}\right \rfloor } 1 
-                    = \boxed{\infty}
-                \end{aligned}$$
-
-        which is clearly unbound
-
-7)  a.  $x(t) = \Pi ( t - 1); h(t) = r(t)$\
-
-        $$\begin{aligned}
-            y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} r(\tau) \Pi (t - \tau - 1) \, d\tau \\
-            = \int_{(t - 1) - \frac{1}{2}}^{(t - 1) + \frac{1}{2}}r(\tau) d\tau
-            = \int_{t - \frac{3}{2}}^{t - \frac{1}{2}}r(\tau) d\tau \\
-                   = \left\{
-                \begin{array}{lr}
-                    \int_{t - \frac{3}{2}}^{t - \frac{1}{2}}\tau d\tau & : t\geq \frac{3}{2} \\
-                    \int_{0}^{t - \frac{1}{2}}\tau d\tau & : t \in [\frac{1}{2}, \frac{3}{2})\\
-                          0 & : t < \frac{1}{2}
-                  \end{array}
-            \right. \\
-            =
-            \boxed{
-                    \left\{
-                \begin{array}{lr}
-                    \frac{(t - \frac{1}{2})^2 - (t - \frac{3}{2})^2}{2} & : t \geq \frac{3}{2} \\
-                    \frac{(t - \frac{1}{2})^2}{2} & : t \in [\frac{1}{2}, \frac{3}{2})\\
-                          0 & : t < \frac{1}{2}
-                  \end{array}
-            \right.
-            }\end{aligned}$$
-
-    b.  $x(t) = e^{-t}u(t); h(t) = \Pi (t - \frac{1}{2})$\
-
-        $$\begin{aligned}
-            y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} e^{-\tau}u(\tau) \Pi (t - \tau - \frac{1}{2}) \, d\tau \\
-            = \int_{(t - \frac{1}{2}) - \frac{1}{2}}^{(t - \frac{1}{2}) + \frac{1}{2}}e^\tau u(\tau) d\tau
-            = \int_{t - 1}^{t}e^\tau u(\tau)(\tau) d\tau \\
-                   = \left\{
-                \begin{array}{lr}
-                    \int_{t}^{t - 1}e^\tau  d\tau & : t\geq 1 \\
-                    \int_{0}^{t}e^\tau d\tau & : t \in [0, 1)\\
-                          0 & : t < 0
-                  \end{array}
-            \right. \\  
-            =
-            \boxed{
-            \begin{array}{lr}
-                    e^t - e^{t - 1} & : t\geq 1 \\
-                    e^t & : t \in [0, 1)\\
-                          0 & : t < 0
-             \end{array}
-            }\end{aligned}$$
-
-    c.  $x(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) ; h(t) = \Pi(t)\sin(2\pi t)$\
-
-        $$\begin{aligned}
-            y(t) = x(t) * h(t) = \sum_{n = -\infty}^{\infty} \delta(t - \frac{1}{2} - n) * h(t) = 
-            \sum_{n = -\infty}^{\infty}h(t - \frac{1}{2} - n) = \\
-            \sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)\sin(2\pi (t - \frac{1}{2} - n)) = 
-            \sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)\sin(2\pi t - \pi - 2 n \pi ) = \\
-            -\sum_{n = -\infty}^{\infty} \Pi(t - \frac{1}{2} - n)\sin(2\pi t) = \\
-            \boxed{\sin(2\pi t)}\end{aligned}$$
-
+6.  a.  **[TODO]**
+    
+    b.  **[TODO]** 
+    
+    c.  **[TODO]** 
+    
+    d.  **[TODO]**
 
