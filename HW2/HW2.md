@@ -94,25 +94,23 @@ To render to PDF, install pandoc and latex. Then, run make.
             \boxed{A_w = \frac{(1 + 20e^{-jw})}{(1 +  20  e^{-jw} + 1700 e{-2jw})}}
         $$
 
-4)  a. $\Pi(t / 8) * comb(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
+4)  a. $\Pi(t / 8) * \text{comb}(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
 
-        $$\begin{aligned}
-            a_k = 
-                10\int_{-4}^{4} e^{-jw_0 k t} dt = 
-                10 \frac{1}{-jw_0kt} \left(  e^{-jw_0k4}- e^{jw_0k4}\right) \\
-            = \boxed{ \frac{20Sin(4w_0 k)}{10 w_0 k} } 
-        \end{aligned}$$
+        \begin{align*}
+            a_k &= 10\int_{-4}^{4} e^{-jw_0 k t} dt \\
+                &= 10 \frac{1}{-jw_0kt} \left(  e^{-jw_0k4}- e^{jw_0k4}\right) \\
+                &= \boxed{ \frac{20\sin(4w_0 k)}{10 w_0 k} }
+        \end{align*}
 
-    b.  $\Pi(4t) * comb(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
+    b.  $\Pi(4t) * \text{comb}(t / 10)$, by examination of the signal, we get that the period is $T_0  = 10$ and the fundamental frequency $\boxed{w_0 = \frac{\pi}{5}}$. We can compute $a_k$ by:
 
-        $$\begin{aligned}
-            a_k = 
-                10 \int_{-\frac{1}{8}}^{\frac{1}{8}} e^{-jw_0 k t} dt  = 
-                \frac{10}{-jw_0kt } \left( 
+        \begin{align*}
+            a_k &= 10 \int_{-\frac{1}{8}}^{\frac{1}{8}} e^{-jw_0 k t} dt \\
+                &= \frac{10}{-jw_0kt } \left(
                     e^{-jw_0k\frac{1}{8}}- e^{jw_0k\frac{1}{8}}
                 \right) \\
-            = \boxed{ \frac{20Sin(\frac{1}{8}w_0 k)}{w_0 k} }
-        \end{aligned}$$
+            &= \boxed{ \frac{20\sin(\frac{1}{8}w_0 k)}{w_0 k} }
+        \end{align*}
 
     c.  **[TODO]**
 
