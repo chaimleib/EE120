@@ -116,9 +116,22 @@ To render to PDF, install pandoc and latex. Then, run make.
 
     c.  **[TODO]**
 
-5.  a.  **[TODO]** 
+5.  a.  $$
+            a_k = \sum_{n = 0}^{8 - 1} (\delta[n - 1] + \delta[n - 2]) e^{-j n k \frac{2\pi}{8}}
+        $$
+        
+        $$
+            \boxed{a_k = e^{-jk\frac{\pi}{4}} + e^{-jk\frac{\pi}{2}}}
+        $$
     
-    b.  **[TODO]**
+    b.  \begin{align*}
+            a_k &= \sum_{n = 0}^{32 - 1} ((-1)^n ) e^{-j n k \frac{2\pi}{32}} \\
+                &= \sum_{n = 0}^{32 - 1} (-e^{-j k \frac{2\pi}{32}})^n \\
+                &= \frac{1 + e^{-jk(32) \frac{2\pi}{32} }}{1 + e^{-jk\frac{2\pi}{32}}}
+        \end{align*}
+        $$
+            a_k = \boxed{\frac{1 + e^{-jk 2\pi}}{1 + e^{-jk\frac{\pi}{16}}}}
+        $$
 
 6.  a.  **[TODO]**
     
