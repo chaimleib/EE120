@@ -78,8 +78,11 @@ To render to PDF, install pandoc and latex. Then, run make.
     Visually, using 8 coefficients, the results are ok. A lot of the high-frequency content is 
     left out. This adversely affected the audio.
     
-    ![E](2ab.jpg) \clearpage
+    ![Plot of vowel "E" using Fourier coefficients from 0-7. Red is the original waveform, and green is the synthesized.](E7.png)
     
+    ![Plot of vowel "E" using Fourier coefficients from 0-35. Red is the original waveform, and green is the synthesized.](E35.png)
+    
+        
     By increasing the number of coefficients to 35, however, I got much
     better results. I chose 35 because the stem plot of coefficients beyond
     the 35th harmonic were close to zero.
@@ -112,4 +115,8 @@ To render to PDF, install pandoc and latex. Then, run make.
     shape is roughly the same, but the high-frequency content is missing.
     Adding more coefficients (interestingly, the same number, 35, as for E)
     encompasses enough bandwidth to produce a recognizable vowel.
+    
+    ![Plot of vowel "O" using Fourier coefficients from 0-7. Red is the original waveform, and green is the synthesized.](O7.png)
+    
+    ![Plot of vowel "O" using Fourier coefficients from 0-35. Red is the original waveform, and green is the synthesized.](O35.png)
     
