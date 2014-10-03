@@ -3,6 +3,10 @@ The latex template is in default.latex.
 
 To render to PDF, install pandoc and latex. Then, run make.
 -->
+2)  Diagrams:
+
+    ![Parts a) and b)](2ab.jpg)
+    ![Parts c) and d)](2cd.jpg)
 
 3)  a.  \begin{align*}
             h_{lp}\left(t\right) &= 
