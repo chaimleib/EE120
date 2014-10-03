@@ -49,6 +49,8 @@ To render to PDF, install pandoc and latex. Then, run make.
                 \left(\Pi\left(\frac{w}{2 \pi 1000}\right)\right) * 
                 \left(\frac{2 \sin\left(0.002 w \right)}{w}\right)
         \end{align*}
+        
+4) TODO
 
 5) 
     ##'E' vowel
@@ -75,6 +77,8 @@ To render to PDF, install pandoc and latex. Then, run make.
     
     Visually, using 8 coefficients, the results are ok. A lot of the high-frequency content is 
     left out. This adversely affected the audio.
+    
+    ![E](2ab.jpg) \clearpage
     
     By increasing the number of coefficients to 35, however, I got much
     better results. I chose 35 because the stem plot of coefficients beyond
